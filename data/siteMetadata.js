@@ -1,7 +1,7 @@
 /** @type {import("pliny/config").PlinyConfig } */
 const siteMetadata = {
   title: 'Presente.Bo',
-  author: 'Sergio Rios Genuzio',
+  author: 'Comunidad Presente',
   headerTitle: 'Presente.Bo',
   description: 'Comunidad Bolivia de libre expresion',
   language: 'es-es',
