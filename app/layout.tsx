@@ -1,7 +1,7 @@
 import 'css/tailwind.css'
 import 'pliny/search/algolia.css'
 
-import {Rubik} from 'next/font/google'
+import { Rubik } from 'next/font/google'
 import { Analytics, AnalyticsConfig } from 'pliny/analytics'
 import { SearchProvider, SearchConfig } from 'pliny/search'
 import Header from '@/components/Header'
@@ -11,12 +11,11 @@ import siteMetadata from '@/data/siteMetadata'
 import { ThemeProviders } from './theme-providers'
 import { Metadata } from 'next'
 
-
 const rubik = Rubik({
-    subsets: ['latin'],
-    display: 'swap',
-    variable: '--font-rubik',
-    })
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-rubik',
+})
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteMetadata.siteUrl),
