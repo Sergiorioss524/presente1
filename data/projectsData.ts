@@ -10,7 +10,7 @@ const projectsData: Project[] = [
     title: 'Evo Morales en el MAS',
     description: `Evo Morales fue reemplazado como líder del MAS en Bolivia por Grover García, señalando un cambio hacia la unidad y transparencia.`,
     imgSrc: '/static/images/evoLucho.png',
-    href: '/blog/ejemplo',
+    href: '/noticias/ejemplo',
   },
   {
     title: 'Dolares en Bolivia',
