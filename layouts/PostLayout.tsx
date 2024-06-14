@@ -87,6 +87,17 @@ export default function PostLayout({ content, authorDetails, next, prev, childre
                             </Link>
                           )}
                         </dd>
+                        <dt className="sr-only">Instagram</dt>
+                        <dd>
+                          {author.instagram && (
+                            <Link
+                              href={author.instagram}
+                              className="text-primary-500 hover:text-primary-600 dark:hover:text-primary-400"
+                            >
+                              {author.instagram.replace('https://instagram.com/', '@')}
+                            </Link>
+                          )}
+                        </dd>
                       </dl>
                     </li>
                   ))}
