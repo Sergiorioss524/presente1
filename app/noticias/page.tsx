@@ -1,35 +1,32 @@
 import projectsData from '@/data/projectsData'
 import Card from '@/components/Card'
 import { genPageMetadata } from 'app/seo'
+import Link from 'next/link'
 
 export const metadata = genPageMetadata({ title: 'Projects' })
 
-export default function Projects() {
+const PricingPage: React.FC = () => {
   return (
-    <>
-      <div className="divide-y divide-gray-200 dark:divide-gray-700">
-        <div className="space-y-2 pb-8 pt-6 md:space-y-5">
-          <h1 className="text-3xl font-extrabold leading-9 tracking-tight text-gray-900 dark:text-gray-100 sm:text-4xl sm:leading-10 md:text-6xl md:leading-14">
-            Noticias
-          </h1>
-          <p className="text-lg leading-7 text-gray-500 dark:text-gray-400">
-            Noticias de Bolivia redactadas por periodistas independientes.
-          </p>
-        </div>
-        <div className="container py-12">
-          <div className="-m-4 flex flex-wrap">
-            {projectsData.map((d) => (
-              <Card
-                key={d.title}
-                title={d.title}
-                description={d.description}
-                imgSrc={d.imgSrc}
-                href={d.href}
-              />
-            ))}
-          </div>
+    <main className="grid min-h-[60vh] place-items-center px-6 py-24 sm:py-32 lg:px-8">
+      <div className="text-center">
+        <p className="text-primary text-base font-semibold">Coming Soon</p>
+        <h1 className="mt-4 text-3xl font-bold tracking-tight sm:text-5xl">
+          Estamos trabajando en la pagina
+        </h1>
+        <p className="mt-6 text-base leading-7">
+          Vuelve en unas semanas para ver el contenido completo de la pagina
+        </p>
+        <div className="mt-10 flex items-center justify-center gap-x-6">
+          <Link href="/" className="btn btn-primary">
+            Vuelve a la pagina principal
+          </Link>
+          <Link href="mailto:presentebolivia@gmail.com" className="text-sm font-semibold">
+            Contactanos <span aria-hidden="true">&rarr;</span>
+          </Link>
         </div>
       </div>
-    </>
+    </main>
   )
 }
+
+export default PricingPage
