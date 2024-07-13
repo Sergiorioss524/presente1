@@ -105,7 +105,8 @@ export default function PostLayout({ content, authorDetails, next, prev, childre
             </dl>
             <div className="divide-y divide-gray-200 dark:divide-gray-700 xl:col-span-3 xl:row-span-2 xl:pb-0">
               <div className="prose max-w-none pb-8 pt-10 dark:prose-invert">{children}</div>
-              <div className="pb-6 pt-6 text-sm text-gray-700 dark:text-gray-300"></div>
+              <div className="pb-6 pt-6 text-sm text-gray-700 dark:text-gray-300">"Las opiniones expresadas en este blog son exclusivamente de los autores y no reflejan necesariamente las opiniones ni la posición oficial de la plataforma. Presente Bolivia no se hace responsable de las opiniones, comentarios o contenidos publicados por los autores. Cada autor es responsable de su propio contenido y de las consecuencias de su publicación."</div>
+
             </div>
             <footer>
               <div className="divide-gray-200 text-sm font-medium leading-5 dark:divide-gray-700 xl:col-start-1 xl:row-start-2 xl:divide-y">
