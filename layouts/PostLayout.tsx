@@ -110,7 +110,7 @@ export default function PostLayout({ content, authorDetails, next, prev, childre
                 reflejan necesariamente las opiniones ni la posición oficial de la plataforma.
                 Presente Bolivia no se hace responsable de las opiniones, comentarios o contenidos
                 publicados por los autores. Cada autor es responsable de su propio contenido y de
-                las consecuencias de su publicación."
+                las consecuencias de su publicación."
               </div>
             </div>
             <footer>
