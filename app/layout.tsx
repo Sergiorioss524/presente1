@@ -11,7 +11,7 @@ import siteMetadata from '@/data/siteMetadata'
 import { ThemeProviders } from './theme-providers'
 import { Metadata } from 'next'
 
-import {Analytics} from '@vercel/analytics/react'
+import { Analytics } from '@vercel/analytics/react'
 
 const rubik = Rubik({
   subsets: ['latin'],
