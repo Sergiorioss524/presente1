@@ -2,7 +2,7 @@
 const siteMetadata = {
   title: 'Presente.Bo',
   author: 'Comunidad Presente',
-  headerTitle: 'PRESENTE.BO',
+  headerTitle: 'Presente.Bo',
   description: 'Comunidad Bolivia de libre expresion',
   language: 'es-es',
   theme: 'system', // system, dark or light
