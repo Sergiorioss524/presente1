@@ -6,9 +6,9 @@ const siteMetadata = {
   description: 'Comunidad Bolivia de libre expresion',
   language: 'es-es',
   theme: 'system', // system, dark or light
-  siteUrl: 'https://tailwind-nextjs-starter-blog.vercel.app',
+  siteUrl: 'https://www.presentebolivia.com/',
   siteRepo: 'https://github.com/Sergiorioss524/presente1',
-  siteLogo: '/static/images/logo.png',
+  siteLogo: '/static/favicons/favicon.png',
   socialBanner: '/static/images/twitter-card.png',
   mastodon: 'https://mastodon.social/@mastodonuser',
   email: 'presente.bolivia@gmail.com',
