@@ -96,7 +96,7 @@ export default function InvestigationLayout({
             <div className="space-y-3">
               <button
                 onClick={() => {
-                  const citation = `${author || 'Presente'}. (${publicationDate || new Date(date).getFullYear()}). ${title}. Presente. ${doi || ''}`
+                  const citation = `${author || 'Presente'}. (${publicationDate || new Date(date).getFullYear()}). ${title}. Presente.`
                   navigator.clipboard.writeText(citation)
                   alert('Cita copiada al portapapeles')
                 }}
@@ -106,7 +106,7 @@ export default function InvestigationLayout({
               </button>
               <button
                 onClick={() => {
-                  const metadata = `Título: ${title}\nAutor: ${author || 'Presente'}\nFecha: ${publicationDate || new Date(date).toLocaleDateString()}\nCategoría: ${category || 'Documento'}\nDOI: ${doi || 'No disponible'}`
+                  const metadata = `Título: ${title}\nAutor: ${author || 'Presente'}\nFecha: ${publicationDate || new Date(date).toLocaleDateString()}\nCategoría: ${category || 'Documento'}\nPáginas: ${content.pages || 'No disponible'}\nTamaño: ${content.fileSize || 'No disponible'}`
                   navigator.clipboard.writeText(metadata)
                   alert('Metadatos copiados al portapapeles')
                 }}
@@ -195,63 +195,9 @@ export default function InvestigationLayout({
                           </a>
                         </div>
                       </div>
-
-                      {/* English Version */}
-                      <div className="flex items-center justify-between">
-                        <div className="flex items-center">
-                          <svg
-                            className="mr-2 h-5 w-5 text-red-500"
-                            fill="currentColor"
-                            viewBox="0 0 20 20"
-                          >
-                            <path
-                              fillRule="evenodd"
-                              d="M4 4a2 2 0 012-2h4.586A2 2 0 0112 2.586L15.414 6A2 2 0 0116 7.414V16a2 2 0 01-2 2H6a2 2 0 01-2-2V4zm2 6a1 1 0 011-1h6a1 1 0 110 2H7a1 1 0 01-1-1zm1 3a1 1 0 100 2h6a1 1 0 100-2H7z"
-                              clipRule="evenodd"
-                            />
-                          </svg>
-                          <span className="text-sm text-gray-600 dark:text-gray-400">
-                            Inglés ({downloads.inglés?.toLocaleString()} descargas)
-                          </span>
-                        </div>
-                        <div className="flex space-x-2">
-                          <a
-                            href={content.pdfUrl || '#'}
-                            className="rounded bg-yellow-500 px-3 py-1 text-xs font-medium text-white transition-colors hover:bg-yellow-600"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                          >
-                            Ver en línea
-                          </a>
-                          <a
-                            href={content.pdfUrl || '#'}
-                            className="rounded bg-yellow-500 px-3 py-1 text-xs font-medium text-white transition-colors hover:bg-yellow-600"
-                            download
-                          >
-                            Descarga
-                          </a>
-                        </div>
-                      </div>
                     </div>
                   )}
                 </div>
-
-                {/* DOI */}
-                {doi && (
-                  <div className="p-4">
-                    <div className="flex items-start justify-between">
-                      <span className="font-medium text-gray-900 dark:text-gray-100">DOI</span>
-                      <a
-                        href={doi}
-                        className="break-all text-sm text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-300"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
-                        {doi}
-                      </a>
-                    </div>
-                  </div>
-                )}
 
                 {/* Topic */}
                 {topic && (
@@ -274,6 +220,30 @@ export default function InvestigationLayout({
                       </span>
                       <span className="text-right text-gray-600 dark:text-gray-400">
                         {category}
+                      </span>
+                    </div>
+                  </div>
+                )}
+
+                {/* Pages */}
+                {content.pages && (
+                  <div className="p-4">
+                    <div className="flex items-start justify-between">
+                      <span className="font-medium text-gray-900 dark:text-gray-100">PÁGINAS</span>
+                      <span className="text-right text-gray-600 dark:text-gray-400">
+                        {content.pages}
+                      </span>
+                    </div>
+                  </div>
+                )}
+
+                {/* File Size */}
+                {content.fileSize && (
+                  <div className="p-4">
+                    <div className="flex items-start justify-between">
+                      <span className="font-medium text-gray-900 dark:text-gray-100">TAMAÑO</span>
+                      <span className="text-right text-gray-600 dark:text-gray-400">
+                        {content.fileSize}
                       </span>
                     </div>
                   </div>
