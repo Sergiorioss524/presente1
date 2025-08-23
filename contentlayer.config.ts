@@ -105,6 +105,15 @@ export const Blog = defineDocumentType(() => ({
     layout: { type: 'string' },
     bibliography: { type: 'string' },
     canonicalUrl: { type: 'string' },
+    // Investigation specific fields
+    doi: { type: 'string' },
+    author: { type: 'string' },
+    publicationDate: { type: 'string' },
+    category: { type: 'string' },
+    topic: { type: 'string' },
+    peerReviewed: { type: 'boolean' },
+    downloads: { type: 'json' },
+    pdfUrl: { type: 'string' },
   },
   computedFields: {
     ...computedFields,
