@@ -90,32 +90,32 @@ export default function InvestigationLayout({
               </div>
             </div>
 
-            {/* Peer Reviewed Status */}
-            {peerReviewed && (
-              <div className="mb-4 flex items-center text-green-600 dark:text-green-400">
-                <svg className="mr-2 h-5 w-5" fill="currentColor" viewBox="0 0 20 20">
-                  <path
-                    fillRule="evenodd"
-                    d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                    clipRule="evenodd"
-                  />
-                </svg>
-                <span className="text-sm font-medium">Peer Reviewed</span>
-              </div>
-            )}
-
             {/* Action Buttons */}
             <div className="space-y-3">
-              <button className="w-full rounded-lg bg-blue-600 px-4 py-2 font-medium text-white transition-colors hover:bg-blue-700">
+              <button
+                onClick={() => {
+                  const citation = `${author || 'Presente'}. (${publicationDate || new Date(date).getFullYear()}). ${title}. Presente. ${doi || ''}`
+                  navigator.clipboard.writeText(citation)
+                  alert('Cita copiada al portapapeles')
+                }}
+                className="w-full rounded-lg bg-yellow-500 px-4 py-2 font-medium text-white transition-colors hover:bg-yellow-600"
+              >
                 Como citar
               </button>
-              <button className="w-full rounded-lg bg-blue-600 px-4 py-2 font-medium text-white transition-colors hover:bg-blue-700">
+              <button
+                onClick={() => {
+                  const metadata = `Título: ${title}\nAutor: ${author || 'Presente'}\nFecha: ${publicationDate || new Date(date).toLocaleDateString()}\nCategoría: ${category || 'Documento'}\nDOI: ${doi || 'No disponible'}`
+                  navigator.clipboard.writeText(metadata)
+                  alert('Metadatos copiados al portapapeles')
+                }}
+                className="w-full rounded-lg bg-yellow-500 px-4 py-2 font-medium text-white transition-colors hover:bg-yellow-600"
+              >
                 Ver metadatos
               </button>
               {content.pdfUrl && (
                 <a
                   href={content.pdfUrl}
-                  className="block w-full rounded-lg bg-green-600 px-4 py-2 text-center font-medium text-white transition-colors hover:bg-green-700"
+                  className="block w-full rounded-lg bg-yellow-500 px-4 py-2 text-center font-medium text-white transition-colors hover:bg-yellow-600"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
@@ -134,9 +134,7 @@ export default function InvestigationLayout({
                 <div className="p-4">
                   <div className="flex items-start justify-between">
                     <span className="font-medium text-gray-900 dark:text-gray-100">AUTOR</span>
-                    <span className="text-right text-gray-600 dark:text-gray-400">
-                      {author || 'Gobierno de Bolivia'}
-                    </span>
+                    <span className="text-right text-gray-600 dark:text-gray-400">La Aparicio</span>
                   </div>
                 </div>
 
@@ -178,12 +176,21 @@ export default function InvestigationLayout({
                           </span>
                         </div>
                         <div className="flex space-x-2">
-                          <button className="rounded bg-blue-600 px-3 py-1 text-xs font-medium text-white transition-colors hover:bg-blue-700">
+                          <a
+                            href={content.pdfUrl || '#'}
+                            className="rounded bg-yellow-500 px-3 py-1 text-xs font-medium text-white transition-colors hover:bg-yellow-600"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                          >
                             Ver en línea
-                          </button>
-                          <button className="rounded bg-blue-600 px-3 py-1 text-xs font-medium text-white transition-colors hover:bg-blue-700">
+                          </a>
+                          <a
+                            href={content.pdfUrl || '#'}
+                            className="rounded bg-yellow-500 px-3 py-1 text-xs font-medium text-white transition-colors hover:bg-yellow-600"
+                            download
+                          >
                             Descarga
-                          </button>
+                          </a>
                         </div>
                       </div>
 
@@ -206,12 +213,21 @@ export default function InvestigationLayout({
                           </span>
                         </div>
                         <div className="flex space-x-2">
-                          <button className="rounded bg-blue-600 px-3 py-1 text-xs font-medium text-white transition-colors hover:bg-blue-700">
+                          <a
+                            href={content.pdfUrl || '#'}
+                            className="rounded bg-yellow-500 px-3 py-1 text-xs font-medium text-white transition-colors hover:bg-yellow-600"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                          >
                             Ver en línea
-                          </button>
-                          <button className="rounded bg-blue-600 px-3 py-1 text-xs font-medium text-white transition-colors hover:bg-blue-700">
+                          </a>
+                          <a
+                            href={content.pdfUrl || '#'}
+                            className="rounded bg-yellow-500 px-3 py-1 text-xs font-medium text-white transition-colors hover:bg-yellow-600"
+                            download
+                          >
                             Descarga
-                          </button>
+                          </a>
                         </div>
                       </div>
                     </div>
