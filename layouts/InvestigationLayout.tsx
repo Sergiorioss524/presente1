@@ -44,7 +44,6 @@ export default function InvestigationLayout({
     date,
     title,
     tags,
-    doi,
     author,
     publicationDate,
     category,
