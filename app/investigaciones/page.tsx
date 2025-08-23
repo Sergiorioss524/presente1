@@ -50,7 +50,8 @@ export default function InvestigacionesPage() {
               category,
               peerReviewed,
             } = post
-            const authors = post.authors.map((author) => allAuthors.find((p) => p.slug === author))
+            const authorList = post?.authors || ['default']
+            const authors = authorList.map((author) => allAuthors.find((p) => p.slug === author))
             return (
               <li key={path} className="py-12">
                 <article>
