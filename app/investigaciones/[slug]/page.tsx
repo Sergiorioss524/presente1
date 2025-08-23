@@ -1,8 +1,11 @@
 import { allBlogs } from 'contentlayer/generated'
 import { notFound } from 'next/navigation'
-import { getMDXComponent } from 'next-contentlayer/hooks'
+import { MDXLayoutRenderer } from 'pliny/mdx-components'
 import { allAuthors } from 'contentlayer/generated'
 import InvestigationLayout from '@/layouts/InvestigationLayout'
+import { components } from '@/components/MDXComponents'
+import { coreContent } from 'pliny/utils/contentlayer'
+import type { Authors } from 'contentlayer/generated'
 
 export const generateStaticParams = async () => {
   const posts = allBlogs.filter((post) => post.draft === false && post.doi) // Only investigations
@@ -11,7 +14,7 @@ export const generateStaticParams = async () => {
   }))
 }
 
-export const generateMetadata = ({ params }) => {
+export const generateMetadata = ({ params }: { params: { slug: string } }) => {
   const post = allBlogs.find((post) => post.slug === params.slug)
   if (!post) {
     return {}
@@ -19,15 +22,8 @@ export const generateMetadata = ({ params }) => {
 
   const publishedAt = new Date(post.date).toISOString()
   const modifiedAt = new Date(post.lastmod || post.date).toISOString()
-  const authors = post.authors.map((author) => allAuthors.find((p) => p.slug === author))
-  const imageList = [post.socialImage]
-
-  const ogImages = imageList.map((img) => {
-    return {
-      url: img,
-      alt: post.title,
-    }
-  })
+  const authorList = post?.authors || ['default']
+  const authors = authorList.map((author) => allAuthors.find((p) => p.slug === author))
 
   return {
     title: post.title,
@@ -36,7 +32,6 @@ export const generateMetadata = ({ params }) => {
       title: post.title,
       description: post.summary,
       siteName: 'Presente',
-      images: ogImages,
       type: 'article',
       publishedTime: publishedAt,
       modifiedTime: modifiedAt,
@@ -45,24 +40,26 @@ export const generateMetadata = ({ params }) => {
     twitter: {
       title: post.title,
       description: post.summary,
-      images: ogImages,
     },
   }
 }
 
-export default async function Page({ params }) {
+export default async function Page({ params }: { params: { slug: string } }) {
   const post = allBlogs.find((post) => post.slug === params.slug)
 
   if (!post) {
     notFound()
   }
 
-  const authors = post.authors.map((author) => allAuthors.find((p) => p.slug === author))
-  const MDXContent = getMDXComponent(post.body.code)
+  const authorList = post?.authors || ['default']
+  const authorDetails = authorList.map((author) => {
+    const authorResults = allAuthors.find((p) => p.slug === author)
+    return coreContent(authorResults as Authors)
+  })
 
   return (
-    <InvestigationLayout content={post} authorDetails={authors}>
-      <MDXContent />
+    <InvestigationLayout content={post} authorDetails={authorDetails}>
+      <MDXLayoutRenderer code={post.body.code} components={components} />
     </InvestigationLayout>
   )
 }
