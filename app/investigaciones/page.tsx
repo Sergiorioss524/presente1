@@ -19,7 +19,7 @@ function sortPosts(posts: CoreContent<Blog>[]) {
 
 export default function InvestigacionesPage() {
   const filteredBlogPosts = allBlogs.filter((post) => {
-    return !post.draft && post.doi // Only show posts with DOI (investigations)
+    return !post.draft && post.pdfUrl // Only show posts with PDF (investigations)
   })
 
   const sortedPosts = sortPosts(filteredBlogPosts)
@@ -44,7 +44,6 @@ export default function InvestigacionesPage() {
               title,
               summary,
               tags,
-              doi,
               author,
               publicationDate,
               category,
@@ -107,16 +106,6 @@ export default function InvestigacionesPage() {
                           <span className="rounded bg-gray-100 px-2 py-1 text-xs dark:bg-gray-800">
                             {category}
                           </span>
-                        )}
-                        {doi && (
-                          <a
-                            href={doi}
-                            className="text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-300"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                          >
-                            DOI
-                          </a>
                         )}
                       </div>
                     </div>

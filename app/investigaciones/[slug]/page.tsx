@@ -8,7 +8,7 @@ import { coreContent } from 'pliny/utils/contentlayer'
 import type { Authors } from 'contentlayer/generated'
 
 export const generateStaticParams = async () => {
-  const posts = allBlogs.filter((post) => post.draft === false && post.doi) // Only investigations
+  const posts = allBlogs.filter((post) => post.draft === false && post.pdfUrl) // Only investigations
   return posts.map((post) => ({
     slug: post.slug,
   }))
