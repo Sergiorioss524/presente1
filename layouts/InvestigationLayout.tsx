@@ -81,13 +81,15 @@ export default function InvestigationLayout({
           <div className="lg:col-span-1">
             {/* Document Thumbnail */}
             <div className="mb-6 rounded-lg bg-gray-100 p-6 dark:bg-gray-800">
-              <div className="flex aspect-[3/4] items-center justify-center rounded border-2 border-gray-300 bg-white dark:border-gray-600 dark:bg-gray-700">
-                <div className="p-4 text-center">
-                  <div className="mb-2 text-lg font-bold text-gray-800 dark:text-gray-200">
-                    {title}
-                  </div>
-                  <div className="text-sm text-gray-600 dark:text-gray-400">Presente</div>
-                </div>
+              <div className="aspect-[3/4] overflow-hidden rounded border-2 border-gray-300 bg-white dark:border-gray-600 dark:bg-gray-700">
+                <Image
+                  src="/static/images/img.jpg"
+                  alt={`Portada de ${title}`}
+                  width={300}
+                  height={400}
+                  className="h-full w-full object-cover"
+                  priority
+                />
               </div>
             </div>
 
@@ -135,7 +137,9 @@ export default function InvestigationLayout({
                 <div className="p-4">
                   <div className="flex items-start justify-between">
                     <span className="font-medium text-gray-900 dark:text-gray-100">AUTOR</span>
-                    <span className="text-right text-gray-600 dark:text-gray-400">La Aparicio</span>
+                    <span className="text-right text-gray-600 dark:text-gray-400">
+                      Natalia Aparicio y Wilmer Machaca
+                    </span>
                   </div>
                 </div>
 
