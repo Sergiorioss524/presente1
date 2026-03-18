@@ -108,7 +108,7 @@ export default function PostLayout({ content, authorDetails, next, prev, childre
               <div className="pb-6 pt-6 text-sm text-gray-700 dark:text-gray-300">
                 "Las opiniones expresadas en este blog son exclusivamente de los autores y no
                 reflejan necesariamente las opiniones ni la posición oficial de la plataforma.
-                Presente Bolivia no se hace responsable de las opiniones, comentarios o contenidos
+                Comoes.Bo no se hace responsable de las opiniones, comentarios o contenidos
                 publicados por los autores. Cada autor es responsable de su propio contenido y de
                 las consecuencias de su publicación."
               </div>

@@ -31,7 +31,7 @@ export const generateMetadata = ({ params }: { params: { slug: string } }) => {
     openGraph: {
       title: post.title,
       description: post.summary,
-      siteName: 'Presente',
+      siteName: 'Comoes',
       type: 'article',
       publishedTime: publishedAt,
       modifiedTime: modifiedAt,

@@ -1,8 +1,8 @@
 /** @type {import("pliny/config").PlinyConfig } */
 const siteMetadata = {
-  title: 'Presente.Bo',
-  author: 'Comunidad Presente',
-  headerTitle: 'Presente.Bo',
+  title: 'Comoes.Bo',
+  author: 'Comunidad Comoes',
+  headerTitle: 'Comoes.Bo',
   description: 'Comunidad Bolivia de libre expresion',
   language: 'es-es',
   theme: 'system', // system, dark or light

@@ -97,7 +97,7 @@ export default function InvestigationLayout({
             <div className="space-y-3">
               <button
                 onClick={() => {
-                  const citation = `${author || 'Presente'}. (${publicationDate || new Date(date).getFullYear()}). ${title}. Presente.`
+                  const citation = `${author || 'Comoes'}. (${publicationDate || new Date(date).getFullYear()}). ${title}. Comoes.`
                   navigator.clipboard.writeText(citation)
                   alert('Cita copiada al portapapeles')
                 }}
@@ -107,7 +107,7 @@ export default function InvestigationLayout({
               </button>
               <button
                 onClick={() => {
-                  const metadata = `Título: ${title}\nAutor: ${author || 'Presente'}\nFecha: ${publicationDate || new Date(date).toLocaleDateString()}\nCategoría: ${category || 'Documento'}\nPáginas: ${content.pages || 'No disponible'}\nTamaño: ${content.fileSize || 'No disponible'}`
+                  const metadata = `Título: ${title}\nAutor: ${author || 'Comoes'}\nFecha: ${publicationDate || new Date(date).toLocaleDateString()}\nCategoría: ${category || 'Documento'}\nPáginas: ${content.pages || 'No disponible'}\nTamaño: ${content.fileSize || 'No disponible'}`
                   navigator.clipboard.writeText(metadata)
                   alert('Metadatos copiados al portapapeles')
                 }}
